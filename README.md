@@ -5,6 +5,8 @@ The Rust flag `unused-crate-dependencies` appears to be unused since then.
 Since then, dependencies of a crate `A` that were only used by a dependency of `A` but not by `A` directly are no longer warned against.
 This can be observed in a workspace with a library crate and a binary crate using that library, as included in this repo.
 
+See also the relevant Rust issue: <https://github.com/rust-lang/rust/issues/166151>
+
 ## Run the example
 
 You need a containerized executable like `docker` or `podman` to run the examples.
