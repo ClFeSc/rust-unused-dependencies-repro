@@ -1,0 +1,7 @@
+[package]
+name = "binary"
+edition = "2024"
+
+[dependencies]
+library = { path = "../library" }
+rand = "0.10.4"
