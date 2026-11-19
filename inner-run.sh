@@ -8,6 +8,7 @@ set -o xtrace
 cd "$(dirname "$0")"
 
 rustc --version
+cargo --version
 
 cargo run binary
 

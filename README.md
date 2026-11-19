@@ -1,7 +1,7 @@
-# Reproduction Example for False-negatives in Unused Crate Dependency Lint in Rust 1.100
+# Reproduction Example for False-negatives in Unused Crate Dependency Lint in Rust/Cargo 1.100
 
-In Rust 1.100, cargo lints were stabilized, including [`unused_dependencies`](https://doc.rust-lang.org/stable/cargo/reference/lints.html#unused_dependencies).
-The Rust flag `unused-crate-dependencies` appears to be unused since then.
+In Rust/Cargo 1.100, cargo lints were stabilized, including [`unused_dependencies`](https://doc.rust-lang.org/stable/cargo/reference/lints.html#unused_dependencies).
+The Rust flag `unused-crate-dependencies` is unused since then.
 Since then, dependencies of a crate `A` that were only used by a dependency of `A` but not by `A` directly are no longer warned against.
 This can be observed in a workspace with a library crate and a binary crate using that library, as included in this repo.
 
@@ -12,7 +12,7 @@ See also the relevant Rust issue: <https://github.com/rust-lang/rust/issues/1661
 You need a containerized executable like `docker` or `podman` to run the examples.
 We use `podman` in the examples; replace with `docker` when you use that instead.
 
-We provide a `run.sh` script that runs a specific Rust version.
+We provide a `run.sh` script that runs a specific Rust/Cargo version.
 Run
 
 ```shell
@@ -25,11 +25,11 @@ and
 ./run.sh podman 1.100
 ```
 
-to compare the output of Rust versions 1.99.1 and 1.100.
+to compare the output of Rust/Cargo versions 1.99.1 and 1.100.
 
 ## What you will observe
 
-### Rust 1.99.1
+### Rust/Cargo 1.99.1
 
 The call to `cargo run binary` succeeds as it does not check for unused dependencies.
 
@@ -45,7 +45,7 @@ error: extern crate `rand` is unused in crate `binary`
 error: could not compile `binary` (bin "binary") due to 1 previous error
 ```
 
-### Rust 1.100
+### Rust/Cargo 1.100
 
 The calls to `cargo run binary` succeed both with and without `RUSTFLAGS="-Dunused-crate-dependencies"`.
 
